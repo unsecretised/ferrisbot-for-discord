@@ -217,6 +217,8 @@ fn build_command_list(enable_database: bool) -> Vec<poise::Command<Data, Error>>
 		commands::godbolt::targets(),
 		commands::utilities::go(),
 		commands::utilities::source(),
+		commands::utilities::server(),
+		commands::utilities::user(),
 		commands::utilities::help(),
 		commands::utilities::register(),
 		commands::utilities::uptime(),

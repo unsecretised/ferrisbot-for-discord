@@ -31,8 +31,11 @@ pub async fn duckduckgo_bang(
 	ctx: Context<'_>,
 	#[description = "Get a search URL to duckduckgo"] bang: String,
 ) -> Result<()> {
-	ctx.send(CreateReply::default().content(format!("https://duckduckgo.com/search?q={}", bang)))
-		.await?;
+	ctx.send(CreateReply::default().content(format!(
+		"https://duckduckgo.com/search?q={}",
+		bang.replace(" ", "%20")
+	)))
+	.await?;
 	Ok(())
 }
 
@@ -42,8 +45,11 @@ pub async fn google_bang(
 	ctx: Context<'_>,
 	#[description = "Get a search URL to google"] bang: String,
 ) -> Result<()> {
-	ctx.send(CreateReply::default().content(format!("https://google.com/search?q={}", bang)))
-		.await?;
+	ctx.send(CreateReply::default().content(format!(
+		"https://google.com/search?q={}",
+		bang.replace(" ", "%20")
+	)))
+	.await?;
 	Ok(())
 }
 
@@ -53,7 +59,10 @@ pub async fn wikipedia_bang(
 	ctx: Context<'_>,
 	#[description = "Get a search URL to wikipedia"] bang: String,
 ) -> Result<()> {
-	ctx.send(CreateReply::default().content(format!("https://en.wikipedia.org/wiki/{}", bang)))
-		.await?;
+	ctx.send(CreateReply::default().content(format!(
+		"https://en.wikipedia.org/wiki/{}",
+		bang.replace(" ", "%20")
+	)))
+	.await?;
 	Ok(())
 }
